@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pointx/components/store_overview.dart';
+import 'package:pointx/widgets/store_overview.dart';
+
+import '../data/stores_data.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({
@@ -10,7 +12,7 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+        padding: const EdgeInsets.only(top: 18, left: 32, right: 32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,35 +41,8 @@ class StoreScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: const Color.fromRGBO(242, 242, 242, 1),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: const [
-                        SizedBox(width: 10),
-                        Icon(
-                          Icons.search,
-                          color: Color.fromRGBO(0, 0, 0, .5),
-                        ),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Search',
-                              hintStyle: TextStyle(
-                                color: Color.fromRGBO(0, 0, 0, .5),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                const Expanded(
+                  child: SearchBox(),
                 ),
                 const SizedBox(width: 10),
                 // rounded ripple button
@@ -107,6 +82,8 @@ class StoreScreen extends StatelessWidget {
                       perksAvailable: storeData[index].perksAvailable,
                       newPerks: storeData[index].newPerks,
                       logoUrl: storeData[index].logoUrl,
+                      highlightNewPerks: true,
+                      onTap: () {},
                     );
                   },
                 ),
@@ -119,60 +96,40 @@ class StoreScreen extends StatelessWidget {
   }
 }
 
-class StoreOverview {
-  final String name;
-  final int points;
-  final int perksAvailable;
-  final int newPerks;
-  final String logoUrl;
-
-  StoreOverview({
-    required this.name,
-    required this.points,
-    required this.perksAvailable,
-    required this.newPerks,
-    required this.logoUrl,
+class SearchBox extends StatelessWidget {
+  const SearchBox({
+    super.key,
   });
-}
 
-List<StoreOverview> storeData = [
-  StoreOverview(
-    name: 'Walmart',
-    points: 550,
-    perksAvailable: 5,
-    newPerks: 2,
-    logoUrl: 'https://companieslogo.com/img/orig/WMT-0d8ecd74.png?t=1633217525',
-  ),
-  StoreOverview(
-    name: 'Amazon',
-    points: 450,
-    perksAvailable: 7,
-    newPerks: 0,
-    logoUrl:
-        'https://companieslogo.com/img/orig/AMZN-e9f942e4.png?t=1632523695',
-  ),
-  StoreOverview(
-    name: 'Amazon',
-    points: 450,
-    perksAvailable: 7,
-    newPerks: 0,
-    logoUrl:
-        'https://companieslogo.com/img/orig/AMZN-e9f942e4.png?t=1632523695',
-  ),
-  StoreOverview(
-    name: 'Amazon',
-    points: 450,
-    perksAvailable: 7,
-    newPerks: 0,
-    logoUrl:
-        'https://companieslogo.com/img/orig/AMZN-e9f942e4.png?t=1632523695',
-  ),
-  StoreOverview(
-    name: 'Amazon',
-    points: 450,
-    perksAvailable: 7,
-    newPerks: 0,
-    logoUrl:
-        'https://companieslogo.com/img/orig/AMZN-e9f942e4.png?t=1632523695',
-  ),
-];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(242, 242, 242, 1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: const [
+          SizedBox(width: 10),
+          Icon(
+            Icons.search,
+            color: Color.fromRGBO(0, 0, 0, .5),
+          ),
+          SizedBox(width: 10),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Search',
+                hintStyle: TextStyle(
+                  color: Color.fromRGBO(0, 0, 0, .5),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
