@@ -69,7 +69,7 @@ class OtpScreen extends StatelessWidget {
                   textFieldAlignment: MainAxisAlignment.spaceAround,
                   fieldStyle: FieldStyle.box,
                   onCompleted: (pin) {
-                    Navigator.pushNamed(context, '/points');
+                    Navigator.pushNamed(context, '/logged_in');
                   },
                   otpFieldStyle: OtpFieldStyle(
                     backgroundColor: Colors.white,
