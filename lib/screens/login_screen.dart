@@ -95,27 +95,32 @@ class LoginScreen extends StatelessWidget {
 
                       //gradient login button
                       const SizedBox(height: 20),
-                      Container(
-                        width: double.infinity,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment(-1.0, 0.0),
-                            end: Alignment(1.0, 0.0),
-                            transform: GradientRotation(math.pi / 4),
-                            colors: [
-                              Color.fromRGBO(113, 99, 186, 1),
-                              Color.fromRGBO(113, 99, 186, .6),
-                            ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/otp');
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              begin: Alignment(-1.0, 0.0),
+                              end: Alignment(1.0, 0.0),
+                              transform: GradientRotation(math.pi / 4),
+                              colors: [
+                                Color.fromRGBO(113, 99, 186, 1),
+                                Color.fromRGBO(113, 99, 186, .6),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Get OTP',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          child: const Center(
+                            child: Text(
+                              'Get OTP',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
