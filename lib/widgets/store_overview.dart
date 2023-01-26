@@ -24,7 +24,6 @@ class StoreOverviewCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: newPerks > 0 && highlightNewPerks

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             .copyWith(primary: const Color.fromRGBO(113, 99, 186, 1)),
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: const OnboardingScreen(),
+      home: const LoggedInScreen(),
       routes: {
         '/login': (context) => const LoginScreen(),
         '/onboarding': (context) => const OnboardingScreen(),

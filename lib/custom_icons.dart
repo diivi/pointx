@@ -14,4 +14,6 @@ class CustomIcons {
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData star_7 =
       IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData dropdown =
+      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

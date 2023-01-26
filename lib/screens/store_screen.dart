@@ -76,14 +76,17 @@ class StoreScreen extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: storeData.length,
                   itemBuilder: (context, index) {
-                    return StoreOverviewCard(
-                      name: storeData[index].name,
-                      points: storeData[index].points,
-                      perksAvailable: storeData[index].perksAvailable,
-                      newPerks: storeData[index].newPerks,
-                      logoUrl: storeData[index].logoUrl,
-                      highlightNewPerks: true,
-                      onTap: () {},
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 20.0),
+                      child: StoreOverviewCard(
+                        name: storeData[index].name,
+                        points: storeData[index].points,
+                        perksAvailable: storeData[index].perksAvailable,
+                        newPerks: storeData[index].newPerks,
+                        logoUrl: storeData[index].logoUrl,
+                        highlightNewPerks: true,
+                        onTap: () {},
+                      ),
                     );
                   },
                 ),

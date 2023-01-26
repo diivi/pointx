@@ -24,6 +24,8 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:
+          false, // to keep the size, when opening the keyboard
       body: screens[_selectedIndex],
       // bottom nav with 4 items, active color = rgba(254, 134, 173, 0.36) and inactive color = rgba(208, 208, 208, 1)
       bottomNavigationBar: BottomNavigationBar(
@@ -41,6 +43,7 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(
+              size: 30,
               CustomIcons.star_7,
               // purple inner shadow on the icon
               shadows: _selectedIndex == 0
