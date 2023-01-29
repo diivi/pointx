@@ -4,8 +4,8 @@ List<StoreOverview> storeData = [
   StoreOverview(
     id: 1,
     name: 'Walmart',
-    points: 550,
-    perksAvailable: 5,
+    points: 750,
+    perksAvailable: 3,
     newPerks: 2,
     logoUrl: 'https://companieslogo.com/img/orig/WMT-0d8ecd74.png?t=1633217525',
   ),

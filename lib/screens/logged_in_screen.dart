@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pointx/screens/history_screen.dart';
 import 'package:pointx/screens/store_screen.dart';
 import 'package:pointx/screens/swap_screen.dart';
 
@@ -16,7 +17,7 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
 
   final List<Widget> screens = [
     const StoreScreen(),
-    const StoreScreen(),
+    const HistoryScreen(),
     const SwapScreen(),
     const StoreScreen(),
   ];

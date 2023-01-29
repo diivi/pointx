@@ -5,6 +5,7 @@ import 'package:pointx/screens/select_store_screen.dart';
 import 'package:pointx/screens/login_screen.dart';
 import 'package:pointx/screens/onboarding_screen.dart';
 import 'package:pointx/screens/logged_in_screen.dart';
+import 'package:pointx/screens/store_details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/otp': (context) => const OtpScreen(),
         '/logged_in': (context) => const LoggedInScreen(),
         '/select_store': (context) => const SelectStoreScreen(),
+        '/store_details': (context) => const StoreDetailsScreen(),
       },
     );
   }

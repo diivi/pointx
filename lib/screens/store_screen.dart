@@ -85,7 +85,14 @@ class StoreScreen extends StatelessWidget {
                         newPerks: storeData[index].newPerks,
                         logoUrl: storeData[index].logoUrl,
                         highlightNewPerks: true,
-                        onTap: () {},
+                        onTap: () {
+                          // navigate to store details
+                          Navigator.pushNamed(
+                            context,
+                            '/store_details',
+                            arguments: storeData[index],
+                          );
+                        },
                       ),
                     );
                   },

@@ -8,78 +8,69 @@ class OtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(129, 115, 204, 1),
-      body: Stack(
-        children: [
-          // tilted oval background
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Transform.rotate(
-              angle: -math.pi / 4,
-              child: Container(
-                width: MediaQuery.of(context).size.width * 1.1,
-                height: MediaQuery.of(context).size.height * 1.1,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(113, 99, 186, 1),
-                  borderRadius: BorderRadius.all(
-                    Radius.elliptical(
-                      MediaQuery.of(context).size.width * 1.1,
-                      MediaQuery.of(context).size.height * 1.1,
-                    ),
-                  ),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: RadialGradient(
+          center: Alignment(-0.5, -0.5),
+          radius: 1.5,
+          colors: [
+            Color.fromRGBO(113, 99, 186, 1),
+            Color.fromRGBO(70, 53, 157, 1),
+          ],
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/otp.png',
+              ),
+              // const SizedBox(height: 20),
+              const Text(
+                'Verification Code',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
-            ),
-          ),
-          // otp image
-          Positioned(
-            child: Column(
-              children: [
-                Image.asset(
-                  'assets/otp.png',
-                  width: MediaQuery.of(context).size.width * 1,
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Verification Code',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
+              const SizedBox(height: 20),
+              const SizedBox(
+                width: 300,
+                child: Text(
                   'We have sent a One-Time Password to your mobile number ',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.white,
+                    color: Colors.white70,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 20),
-                // otp input boxes
-                OTPTextField(
-                  length: 4,
-                  width: 250,
-                  fieldWidth: 50,
-                  style: const TextStyle(fontSize: 18),
-                  textFieldAlignment: MainAxisAlignment.spaceAround,
-                  fieldStyle: FieldStyle.box,
-                  onCompleted: (pin) {
-                    Navigator.pushNamed(context, '/logged_in');
-                  },
-                  otpFieldStyle: OtpFieldStyle(
-                    backgroundColor: Colors.white,
-                    borderColor: Colors.white,
-                  ),
+              ),
+              const SizedBox(height: 20),
+              // otp input boxes
+              OTPTextField(
+                length: 4,
+                width: 250,
+                fieldWidth: 50,
+                style: const TextStyle(fontSize: 18, color: Colors.white),
+                textFieldAlignment: MainAxisAlignment.spaceAround,
+                fieldStyle: FieldStyle.box,
+                onCompleted: (pin) {
+                  Navigator.pushNamed(context, '/logged_in');
+                },
+                otpFieldStyle: OtpFieldStyle(
+                  backgroundColor: const Color.fromRGBO(154, 139, 244, 1),
+                  borderColor: Colors.white,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
